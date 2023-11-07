@@ -1,15 +1,14 @@
 name: Hello world workflow
-
 on:
   push:
     branches:
       - main
   pull_request:
-    branches
+    branches:
       - main
   workflow_dispatch:
-    
-job:
+
+jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
@@ -17,4 +16,4 @@ job:
       - name: hello world
         run: echo "Hello world"
         shell: bash
-        
+
