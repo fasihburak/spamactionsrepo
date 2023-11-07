@@ -3,10 +3,13 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
+    paths:
+      - '/to_check'
+
+  # pull_request:
+  #   branches:
+  #     - main
+  # workflow_dispatch:
 
 jobs:
   hello:
@@ -14,6 +17,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: hello world
-        run: echo "Hello world"
+        run: echo "Changes made"
         shell: bash
 
