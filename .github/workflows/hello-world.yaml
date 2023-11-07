@@ -12,11 +12,18 @@ on:
   # workflow_dispatch:
 
 jobs:
-  hello:
+  assign:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: hello world
-        run: echo "Changes made"
-        shell: bash
+      - uses: hkusu/review-assign-action@v1
+        with:
+          assignees: fasihburak 
+# jobs:
+#   hello:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: hello world
+#         run: echo "Changes made"
+#         shell: bash
 
