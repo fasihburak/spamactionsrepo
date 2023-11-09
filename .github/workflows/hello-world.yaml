@@ -1,42 +1,29 @@
-name: "Auto Assign"
+name: Hello world workflow
 on:
-  - push
+  push:
+    branches:
+      - main
+    paths:
+      - 'to_check/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'to_check/**'
+  workflow_dispatch: # Gives you a button to trigger the workflow manually.
 
 jobs:
-  assign_reviewer:
+  hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: shufo/auto-assign-reviewer-by-files@v1.1.4
-        with:
-          config: ".github/assign-by-files.yml"
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-# name: Hello world workflow
-# on:
-#   push:
-#     branches:
-#       - main
-#     paths:
-#       - 'to_check/**'
-
-  # pull_request:
-  #   branches:
-  #     - main
-  # workflow_dispatch:
-
-# jobs:
-#   assign:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: hkusu/review-assign-action@v1
-#         with:
-#           assignees: fasihburak 
-# jobs:
-#   hello:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: hello world
-#         run: echo "Changes made"
-#         shell: bash
-
+      - uses: actions/checkout@v2 # You can utilize any third-party action in the market place or in a public repo.
+      - name: hello world
+        run: echo "Changes made"
+        shell: bash
+  goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye world
+        run: echo "Workflow completed"
+        shell: bash
+        
